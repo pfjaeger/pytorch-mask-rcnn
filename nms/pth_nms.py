@@ -40,7 +40,7 @@ def pth_nms(dets, thresh):
     order = scores.sort(0, descending=True)[1]
     # order = torch.from_numpy(np.ascontiguousarray(scores.cpu().numpy().argsort()[::-1])).long().cuda()
 
-    dets = dets[order].contiguous()
+    dets_temp = dets_temp[order].contiguous()
 
     keep = torch.LongTensor(dets.size(0))
     num_out = torch.LongTensor(1)
